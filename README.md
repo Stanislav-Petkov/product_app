@@ -1,17 +1,41 @@
-# product_app
+# Product App
 
-List of products
+## Description
+This is a Flutter application for displaying a list of products. The app fetches products data from a repository and displays it in a user-friendly interface.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+### Prerequisites
+- Flutter SDK
+- Dart SDK
 
-A few resources to get you started if this is your first Flutter project:
+### Installation
+1. Clone the repository:
+    ```sh
+    git clone <repository-url>
+    ```
+2. Navigate to the project directory:
+    ```sh
+    cd product_app
+    ```
+3. Get the dependencies:
+    ```sh
+    flutter pub get
+    ```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Running the App
+1. Navigate to the `lib` directory:
+    ```sh
+    cd lib
+    ```
+2. Run the `main.dart` file:
+    ```sh
+    flutter run lib/main.dart
+    ```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# product_app
+## Features
+- Fetch and display a list of products
+- Display product details including thumbnail, title, description, and price
+
+## License
+This project is licensed under the MIT License.

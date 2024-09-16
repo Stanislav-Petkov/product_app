@@ -65,7 +65,6 @@ class ProductItem extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             product.thumbnail == null
                 ? Image.asset(
