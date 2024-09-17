@@ -27,16 +27,22 @@ class ProductStateMapper extends ClassMapperBase<ProductState> {
   static bool _$isLoading(ProductState v) => v.isLoading;
   static const Field<ProductState, bool> _f$isLoading =
       Field('isLoading', _$isLoading, opt: true, def: false);
+  static String? _$errorMessage(ProductState v) => v.errorMessage;
+  static const Field<ProductState, String> _f$errorMessage =
+      Field('errorMessage', _$errorMessage, opt: true);
 
   @override
   final MappableFields<ProductState> fields = const {
     #products: _f$products,
     #isLoading: _f$isLoading,
+    #errorMessage: _f$errorMessage,
   };
 
   static ProductState _instantiate(DecodingData data) {
     return ProductState(
-        products: data.dec(_f$products), isLoading: data.dec(_f$isLoading));
+        products: data.dec(_f$products),
+        isLoading: data.dec(_f$isLoading),
+        errorMessage: data.dec(_f$errorMessage));
   }
 
   @override
@@ -93,7 +99,8 @@ abstract class ProductStateCopyWith<$R, $In extends ProductState, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
   ListCopyWith<$R, ProductModel,
       ProductModelCopyWith<$R, ProductModel, ProductModel>> get products;
-  $R call({List<ProductModel>? products, bool? isLoading});
+  $R call(
+      {List<ProductModel>? products, bool? isLoading, String? errorMessage});
   ProductStateCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
 
@@ -111,15 +118,20 @@ class _ProductStateCopyWithImpl<$R, $Out>
       get products => ListCopyWith($value.products,
           (v, t) => v.copyWith.$chain(t), (v) => call(products: v));
   @override
-  $R call({List<ProductModel>? products, bool? isLoading}) =>
+  $R call(
+          {List<ProductModel>? products,
+          bool? isLoading,
+          Object? errorMessage = $none}) =>
       $apply(FieldCopyWithData({
         if (products != null) #products: products,
-        if (isLoading != null) #isLoading: isLoading
+        if (isLoading != null) #isLoading: isLoading,
+        if (errorMessage != $none) #errorMessage: errorMessage
       }));
   @override
   ProductState $make(CopyWithData data) => ProductState(
       products: data.get(#products, or: $value.products),
-      isLoading: data.get(#isLoading, or: $value.isLoading));
+      isLoading: data.get(#isLoading, or: $value.isLoading),
+      errorMessage: data.get(#errorMessage, or: $value.errorMessage));
 
   @override
   ProductStateCopyWith<$R2, ProductState, $Out2> $chain<$R2, $Out2>(

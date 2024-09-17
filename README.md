@@ -22,7 +22,11 @@ This is a Flutter application for displaying a list of products. The app fetches
     ```sh
     flutter pub get
     ```
-
+4. Generate the generated files:
+    ```sh
+    dart run build_runner build --delete-conflicting-outputs
+    ```
+   
 ### Running the App
 1. Navigate to the `lib` directory:
     ```sh

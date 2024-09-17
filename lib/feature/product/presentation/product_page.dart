@@ -16,7 +16,14 @@ class ProductPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => getIt<ProductCubit>(),
-      child: BlocBuilder<ProductCubit, ProductState>(
+      child: BlocConsumer<ProductCubit, ProductState>(
+        listener: (context, state) {
+          if (state.errorMessage != null) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text(state.errorMessage!)),
+            );
+          }
+        },
         builder: (context, state) {
           return Scaffold(
             body: Column(

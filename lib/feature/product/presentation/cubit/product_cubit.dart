@@ -15,9 +15,13 @@ class ProductCubit extends Cubit<ProductState> {
   ProductCubit(this.repository) : super(ProductState());
 
   Future<void> getProducts() async {
-    emit(state.copyWith(isLoading: true));
-    final productListModel = await repository.getProducts();
-    final productsList = productListModel.products;
-    emit(state.copyWith(products: productsList, isLoading: false));
+    emit(state.copyWith(isLoading: true,errorMessage: null));
+    try {
+      final productListModel = await repository.getProducts();
+      final productsList = productListModel.products;
+      emit(state.copyWith(products: productsList, isLoading: false));
+    } catch (e) {
+      emit(state.copyWith(isLoading: false, errorMessage: e.toString()));
+    }
   }
 }
