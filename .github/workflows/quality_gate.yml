@@ -39,4 +39,13 @@ jobs:
         run: dart run build_runner build --delete-conflicting-outputs
 
       - name: Run Static Analysis
-        run: dart analyze
+        run: |
+          ANALYSIS_RESULTS=$(dart analyze)
+          echo "$ANALYSIS_RESULTS"
+          if [[ "$ANALYSIS_RESULTS" == *"No issues found!"* ]]; then
+              echo "Static analysis found no issues."
+              exit 0
+          else
+              echo "Static analysis found issues."
+              exit 1
+          fi
