@@ -22,6 +22,10 @@ migrate_working_dir/
 #.vscode/
 
 # Flutter/Dart/Pub related
+*.g.dart
+*.gr.dart
+*.config.dart
+*.mapper.dart
 **/doc/api/
 **/ios/Flutter/.last_build_id
 .dart_tool/
@@ -41,3 +45,6 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# FVM Version Cache
+.fvm/
